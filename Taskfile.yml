@@ -1,0 +1,18 @@
+version: "3"
+tasks:
+  create-env:
+    platforms: [linux]
+    desc: create env file for resolve permission problems (only Linux)
+    cmds:
+      - echo "UID=$(id -u)" >> .env
+      - echo "GID=$(id -g)" >> .env
+  up:
+    desc: start up docker containers
+    cmds:
+      - docker compose up -d
+
+  down:
+    desc: stop docker containers
+    cmds:
+      - docker compose down
+
